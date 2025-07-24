@@ -1,0 +1,78 @@
+ <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>Banking App</title>
+  <link rel="stylesheet" href="style.css"/>
+</head>
+<body>
+
+  <!-- Register Section -->
+<div id="register-container" class="card">
+  <h2>Register</h2>
+  <input type="text" id="reg-username" placeholder="Username" required />
+  <input type="password" id="reg-password" placeholder="Password" required />
+  <button onclick="register()">Register</button>
+  <p id="register-error" class="error"></p>
+  <p class="switch-text">Already have an account? <a href="#" onclick="showLogin()">Login here</a></p>
+</div>
+
+
+
+  <!-- Login Section -->
+  <div id="login-container" class=" hidden card">
+    <h2>Login</h2>
+    <input type="text" id="username" placeholder="Username" required />
+    <input type="password" id="password" placeholder="Password" required />
+    <button onclick="login()">Login</button>
+    <p id="login-error" class="error"></p>
+     <p class="switch-text">Don’t have an account? <a href="#" onclick="showRegister()">Register here</a></p>
+  </div>
+
+  <!-- Dashboard Section -->
+  <div id="dashboard-container" class="hidden card">
+    <div id="action-message" class="hidden-message"></div>
+
+    <h2>Welcome, <span id="user-name"></span></h2>
+    <p><strong>Username:</strong> <span id="user-username"></span></p>
+    <p><strong>Account Number:</strong> <span id="account-number"></span></p>
+    <p><strong>Balance:</strong> ₹<span id="account-balance"></span></p>
+     <hr>
+
+    <!-- Deposit -->
+    <h3>Deposit Money</h3>
+    <input type="number" id="deposit-amount" placeholder="Enter amount to deposit" />
+    <button onclick="depositMoney()">Deposit</button>
+
+    <!-- Withdraw -->
+    <h3>Withdraw Money</h3>
+    <input type="number" id="withdraw-amount" placeholder="Enter amount to withdraw" />
+    <button onclick="withdrawMoney()">Withdraw</button>
+
+    <hr>
+
+    <h3>Transaction History</h3>
+    <table id="transaction-table">
+      <thead>
+        <tr>
+          <th>Type</th>
+          <th>Amount</th>
+          <th>Date</th>
+        </tr>
+      </thead>
+      <tbody id="transaction-body">
+        <!-- Transactions will be added here -->
+      </tbody>
+    </table>
+    <button onclick="logout()">Logout</button>
+  </div>
+  <!-- Add after dashboard-container div -->
+<div id="welcome-popup" class="hidden">🎉 Welcome to your Dashboard!!</div>
+<canvas id="confetti-canvas" class="hidden"></canvas>
+
+
+  <script src="app.js"></script>
+</body>
+</html>
+
